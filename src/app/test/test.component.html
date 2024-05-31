@@ -1,0 +1,9 @@
+
+<button #btn id=""btn (click)="buttonClick()">click</button>
+
+<input type="text" [formControl]="search" placeholder="Search...">
+
+count:{{results?.length}}
+<ul>
+  <li *ngFor="let result of results">{{ result?.name }}</li>
+</ul>

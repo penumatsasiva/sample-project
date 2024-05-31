@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files quartz ,blaham,material,alpine*/
+
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+
+.grid-cell-bg-color{
+    background-color: aqua;
+}
+.grid-row-bg-color{
+    background-color: goldenrod;
+}

@@ -1,0 +1,21 @@
+<ag-grid-angular
+[rowData]="rowData"
+[columnDefs]="colDefs"class="ag-theme-quartz"
+[columnTypes]="columnTypes"
+[rowClassRules]="classRules"
+[rowSelection]="'single'"
+[pagination]="true"
+[sideBar]="sideBar"
+[paginationPageSize]="5"
+[paginationPageSizeSelector]="[5,10,15]"
+[columnTypes]="columnTypes"
+(selectionChanged)="rowSelection($event)"
+(gridReady)="onGridReady($event)"
+(cellValueChanged)="onCellValueChanged($event)"
+(rowValueChanged)="onRowValueChanged($event)"
+
+style="height: 500px;">
+
+</ag-grid-angular>
+<button (click)="excludeColumns()">Exclude</button>
+<button (click)="addColumns()">Add</button>
