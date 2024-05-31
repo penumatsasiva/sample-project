@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +16,9 @@ export class SearchServiceService {
       return data.items;
     }),);
   }
+  getGridData() :Observable<any>{
+    return this.http
+      .get<any[]>('https://www.ag-grid.com/example-assets/space-mission-data.json')
+      
+   }
 }

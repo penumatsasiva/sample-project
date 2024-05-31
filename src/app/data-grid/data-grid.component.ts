@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ColDef ,IRow,RowClassRules,SelectionChangedEvent,GridApi,SideBarDef,GridReadyEvent,GetRowIdFunc,IAggFunc,CellEditRequestEvent,CellValueChangedEvent,RowValueChangedEvent} from 'ag-grid-community'; 
+import { ColDef ,RowClassRules,SelectionChangedEvent,GridApi,SideBarDef,GridReadyEvent,GetRowIdFunc,IAggFunc,CellEditRequestEvent,CellValueChangedEvent,RowValueChangedEvent} from 'ag-grid-community'; 
+import { SearchServiceService } from '../search-service.service';
 
 @Component({
   selector: 'app-data-grid',
@@ -7,7 +8,7 @@ import { ColDef ,IRow,RowClassRules,SelectionChangedEvent,GridApi,SideBarDef,Gri
   styleUrls: ['./data-grid.component.scss']
 })
 export class DataGridComponent implements OnInit {
-  rowData: any[] = [];
+  rowData= [];
   colDefs: ColDef[] = [
     { field: "mission" },
     { field: "company" },
@@ -18,12 +19,11 @@ export class DataGridComponent implements OnInit {
     { field: "rocket" }
   ];
   onGridReady(params: GridReadyEvent) {
-    this.http
-      .get<any[]>('https://www.ag-grid.com/example-assets/space-mission-data.json')
-      .subscribe(data => this.rowData = data);
+   this.service.getGridData()
+      .subscribe((data:any) => this.rowData = data);
    }
   // ...
-  constructor() { }
+  constructor(private service:SearchServiceService) { }
 
   ngOnInit(): void {
   }
